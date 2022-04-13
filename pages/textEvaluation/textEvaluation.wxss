@@ -1,0 +1,34 @@
+.editor{
+    margin-right: 20rpx;
+    margin-left: 23rpx;
+    border: lightgrey solid 1px;
+    text-align: left;
+    padding: 10px 10px 10px 10px;
+    height: 72vh;
+    overflow: auto;
+    white-space: pre-line;
+    line-height: 24rpx;
+    z-index: 1;
+    font-family: SimSong;
+}
+
+#check-button{
+    margin-top: 10px;
+    margin-right: 23rpx;
+    margin-left: 23rpx;
+    border: transparent;
+    text-align: center;
+    color: white;
+    font-family: SimSong;
+    font-size: 23rpx;
+    background-color: #2c3e50;
+}
+
+.page-title{
+    margin-top: 30rpx;
+    margin-bottom: 20rpx;
+    text-align: center;
+    font-size: 40rpx;
+    color: #2c3e50;
+    font-family: SimSong;
+}

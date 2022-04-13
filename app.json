@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/mine/mine",
+    "pages/about/about",
+    "pages/lawArticles/lawArticles",
+    "pages/textEvaluation/textEvaluation",
+    "pages/judicalDocuments/judicalDocuments"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于天气信息展示"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxe4be33e8dc83c10c"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#39b54a",
+    "navigationBarTitleText": "小帅一点资讯",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#2c3e50",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tabbar/index.png",
+        "selectedIconPath": "images/tabbar/index_cur.png",
+        "text": "功能页"
+      },
+
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/tabbar/mine.png",
+        "selectedIconPath": "images/tabbar/mine_cur.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom",
+    "mt-dropdown": "/components/mt-dropdown/mt-dropdown",
+    "mt-dropdown-item": "/components/mt-dropdown-item/mt-dropdown-item",
+    "tree": "/components/tree/tree",
+    "c-tree": "/components/tree/tree"
+  },
+  "sitemapLocation": "sitemap.json"
+}

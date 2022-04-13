@@ -1,0 +1,37 @@
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+    <view class="userinfo">
+<!--    <button class="cu-btn bg-xsblue margin-tb-lg lg" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo"> 授权获取用户更多信息</button>-->
+      <button class="cu-btn bg-xsblue margin-tb-lg lg" wx:if="{{!hasUserInfo && canIUse}}" bindtap="getUserProfile"> 授权获取用户更多信息</button>
+      <block wx:else>
+      <image bindtap="bindViewTap" class="user-img" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="text-xl" style="text-align:center;">{{userInfo.nickName}}</view>
+    </block>
+    </view>
+    <image src="../../images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  <view class="padding flex text-center text-grey bg-white shadow-warp" wx:if="{{hasUserInfo && canIUse}}">
+    <view class="flex flex-sub flex-direction solid-right">
+        <view class="text-xxl text-red">{{userRole}}</view>
+        <view class="margin-bottom-sm"><text class="cuIcon-attentionfill"></text>我的角色</view>
+    </view>
+  </view>
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+  </view>
+    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+        <view class="cu-item arrow">
+            <view class="content"  bindtap="personalInfo">
+                <text class="cuIcon-list text-xsblue"></text>
+                <text class="text-grey">个人中心</text>
+            </view>
+        </view>
+        <view class="cu-item arrow">
+            <navigator class="content" url="/pages/about/about" hover-class="none">
+                <text class="cuIcon-creativefill text-orange"></text>
+                <text class="text-grey">关于这个系统</text>
+            </navigator>
+        </view>
+    </view>
+  <text class='reason_txt'>Version:1.0.0</text>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

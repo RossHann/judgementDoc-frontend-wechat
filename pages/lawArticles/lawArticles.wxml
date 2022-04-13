@@ -1,0 +1,24 @@
+<cu-custom bgColor="bg-red" isBack="{{true}}">
+  <view slot="content">法条列表</view>
+</cu-custom>
+<view class="page-title">法条列表</view>
+
+<view class="container-card">
+    <view class="card-box">
+      <view class="card-title">目录</view>
+        <view class="detailed-switch">
+            <button bindtap="showQuery" class="title-button">{{buttonText}}</button>
+        </view>
+    </view>
+    <view wx:if="{{isVisible}}" class="tree-card">
+      <tree
+              dataTree="{{dataTree}}"
+              selectKey="{{selectKey}}"
+              bind:select="handleSelect"
+              isSelectLastNode="{{isSelectLastNode}}"
+              isOpenAll="{{isOpenAll}}"
+
+        ></tree>
+    </view>
+</view>
+

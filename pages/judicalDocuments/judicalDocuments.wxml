@@ -1,0 +1,4 @@
+<cu-custom bgColor="bg-red" isBack="{{true}}">
+    <view slot="content">文书列表</view>
+</cu-custom>
+<view>文书列表</view>

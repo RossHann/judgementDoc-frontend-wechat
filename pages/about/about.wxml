@@ -1,0 +1,10 @@
+<cu-custom bgColor="bg-red" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">裁判文书说理评估系统</view>
+</cu-custom>
+
+<view>
+  <view class="title align-center">系统简介</view>
+  <text class="card" space="ensp">  裁判文书说理系统是一个对裁判文书类文本进行说理评估的系统，主要面向用户包括法官、律师及普通大众等，可帮助裁判文书编写人员评估裁判文书说理质量水平，辅助律师和普通用户对已发布裁判文书进行参考等。
+  </text>
+</view>

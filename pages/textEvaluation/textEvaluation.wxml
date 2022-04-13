@@ -1,0 +1,6 @@
+<cu-custom bgColor="bg-red" isBack="{{true}}">
+    <view slot="content">文书评估</view>
+</cu-custom>
+<view class="page-title">文本评估</view>
+<textarea id="textInputBangBangBang" bindblur="bindTextAreaBlur" class="editor" maxlength="999999999999" value="{{DocContent}}"></textarea>
+<button id="check-button" type="primary" plain bindtap="onCheck">检验</button>
