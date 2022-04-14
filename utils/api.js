@@ -79,9 +79,8 @@ const api = {
 }
 
 let checkAPI = (data1, callback) => {
-
-  // return new Promise((resolve, reject) => {
-    wx.request({
+  //版本1
+  wx.request({
       // url: `${api.editorPre}/check`,
       url: check_text_evaluation_url,
       method: 'GET',
@@ -101,13 +100,20 @@ let checkAPI = (data1, callback) => {
         if (callback.fail)
           callback.fail()
       }
-      // success: res=> {
-      //   return res
-      // },
-      // fail: res =>{
-      //   reject(res.data.message)
-      // }
     })
+
+  //版本2
+  // return new Promise((resolve, reject) => {
+  //
+  // })
+
+  //版本3
+  // return wx.request({
+  //   url: check_text_evaluation_url,
+  //   method: 'GET',
+  //   data:{
+  //     text: data1
+  //   }
   // })
 }
 

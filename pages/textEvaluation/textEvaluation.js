@@ -1,5 +1,6 @@
 var app = getApp()
 var api = require('../../utils/api.js')
+var wxParse = require('../../wxParse/wxParse.js')
 
 Page({
     data: {
@@ -32,11 +33,9 @@ Page({
 
     // check({commit}, data) {
     check(data) {
-        // return new Promise((resolve, reject) => {
+        //版本1
+        // var promise = new Promise((resolve, reject) => {
         //     api.checkAPI(data).then(response=>{
-        //         wx.showToast({
-        //             title: 'res'
-        //         })
         //         if (response.data.success){
         //             resolve(response.data.content);
         //         }
@@ -45,29 +44,30 @@ Page({
         //         }
         //     })
         // })
+        //
+        // return promise
+
+        //版本2
         api.checkAPI(data, {
             success(res) {
-                var resultJ = JSON.parse(res)
-                // wx.showToast({
-                //     content: resultJ.data,
-                //     title: 'in store'
-                // })
-                // if (resultJ.success) {
-                //     wx.hideLoading();
-                //     wx.showModal({
-                //         content: resultJ.content,
-                //         showCancel: false,
-                //         confirmText: '明白了'
-                //     })
-                // } else {
-                //         wx.hideLoading();
-                //         wx.showModal({
-                //             content: resultJ.message,
-                //             showCancel: false,
-                //             confirmText: '明白了'
-                //         })
-                // }
-                // callback.success(resultJ)
+                var resultJ = res
+                this.result = resultJ
+                if (resultJ.success) {
+                    wx.hideLoading();
+                    wx.showModal({
+                        content: this.result.content[0]["content"],
+                        showCancel: false,
+                        confirmText: '明白了'
+                    })
+                } else {
+                        wx.hideLoading();
+                        wx.showModal({
+                            content: resultJ.message,
+                            showCancel: false,
+                            confirmText: '明白了'
+                        })
+                }
+                callback.success(resultJ)
                 this.result = res;
                 this.data.DocContent = '';
                 this.graphData = {
@@ -97,6 +97,8 @@ Page({
                 nodes: [],
                 edges: []
             }
+
+
 
             for (let text of this.result.texts){
                 if(text.type == 0){

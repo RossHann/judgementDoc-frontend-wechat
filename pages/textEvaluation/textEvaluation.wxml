@@ -4,3 +4,10 @@
 <view class="page-title">文本评估</view>
 <textarea id="textInputBangBangBang" bindblur="bindTextAreaBlur" class="editor" maxlength="999999999999" value="{{DocContent}}"></textarea>
 <button id="check-button" type="primary" plain bindtap="onCheck">检验</button>
+<!--<view>{{result}}</view>-->
+<!--<view class='result-list'>-->
+<!--    <navigator open-type="navigate" hover-class='none' class="result-li" wx:for="{{result.content}}" wx:key>-->
+<!--        <view class="result-title">{{item.type}}</view>-->
+<!--        <view class="result-name">{{item.content}}</view>-->
+<!--    </navigator>-->
+<!--</view>-->
