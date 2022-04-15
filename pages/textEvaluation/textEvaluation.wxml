@@ -9,8 +9,10 @@
 <!--<view>{{result}}</view>-->
 <view class='result-list'>
     <navigator open-type="navigate" hover-class='none' class="result-li" wx:for="{{result.content}}" wx:key>
-        <view class="result-title">{{item.id}}</view>
-        <view class="result-name">{{item.content}}</view>
+        <view  wx:if="{{item.result.type !== 0}}">
+        <view class="result-title" wx:if="{{result.type !== 0}}" >{{item.id}}</view></view>
+<!--        <textarea class="result-content" model:value="{{item.content}}" auto-height></textarea>-->
+        <view class="result-content" wx:if="{{item.result.type !== 0}}" >{{item.content}}</view>
     </navigator>
 </view>
 
