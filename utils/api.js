@@ -91,10 +91,6 @@ let checkAPI = (data1, callback) => {
       },
       success: function (res) {
         callback.success(res.data)
-        wx.showToast({
-          content: res.data,
-          title: 'in api'
-        })
       },
       fail: function (res) {
         if (callback.fail)
