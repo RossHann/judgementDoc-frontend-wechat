@@ -3,7 +3,7 @@ var api = require('../../utils/api.js')
 
 Page({
     data: {
-        resultVisible: true,
+        resultVisible: false,
         DocContent: '',
         curLength: 0,
         result: [],
