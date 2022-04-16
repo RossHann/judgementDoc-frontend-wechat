@@ -1,7 +1,7 @@
 //域名地址
 // var prefix = 'http://172.29.7.224:8001';
-// var prefix = 'http://localhost:8001';
-var prefix = 'https://mockapi.eolink.com/LZipapNab7780abd7f30e8b3cea9d4f36abbc9d3c3a87b0/';
+var prefix = 'http://localhost:8001';
+// var prefix = 'https://mockapi.eolink.com/LZipapNab7780abd7f30e8b3cea9d4f36abbc9d3c3a87b0/';
 // var prefix = '';
 //小程序账号编码(自己定义，后端项目中对应weixin_account表中的account_code)
 var account_code = "";

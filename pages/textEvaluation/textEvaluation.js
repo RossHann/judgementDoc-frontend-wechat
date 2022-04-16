@@ -83,6 +83,7 @@ Page({
                 for (let item in res) {
                     if (item.type !== 0) {
                         newResult.push(item);
+                        console.log(item)
                     }
                 }
                 _this.setData({

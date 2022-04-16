@@ -9,11 +9,11 @@
 <!--<view>{{result}}</view>-->
 <!--<view class='result-list' wx:if="{{resultVisible==true}}">-->
 <view class='result-list' wx:if="{{resultVisible}}">
-    <navigator open-type="navigate" hover-class='none' class="result-li" wx:for="{{result}}" wx:key>
+    <view open-type="navigate" hover-class='none' class="result-li" wx:for="{{result}}">
         <view class="result-title">{{item.id}}</view>
 <!--        <textarea class="result-content" model:value="{{item.content}}" auto-height></textarea>-->
         <view class="result-content">{{item.content}}</view>
-    </navigator>
+    </view>
 </view>
 <!--<view class="result-list" wx:if="{{resultVisible==false}}"></view>-->
 
