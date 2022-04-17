@@ -87,6 +87,15 @@ Page({
                 let re = that.data.result;
                 for (let item in contentRes) {
                     if (contentRes[item].type !== 0) {
+                        if (contentRes[item].type === 1){
+                            contentRes[item].id = contentRes[item].id.substring(5);
+                        }
+                        else if (contentRes[item].type === 2){
+                            contentRes[item].id = contentRes[item].id.substring(4);
+                        }
+                        else if (contentRes[item].type === 3){
+                            contentRes[item].id = contentRes[item].id.substring(11);
+                        }
                         re.push(contentRes[item]);
                     }
                 }

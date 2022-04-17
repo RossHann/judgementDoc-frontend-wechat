@@ -10,18 +10,34 @@
 <view class='result-list' wx:if="{{resultVisible}}">
 <!--<view class='result-list' wx:if="{{resultVisible}}">-->
     <view open-type="navigate" hover-class='none' class="result-li" wx:for="{{result}}">
-<!--        <view wx:if="{{item.type===1}}">-->
-<!--&lt;!&ndash;            事实&ndash;&gt;-->
-<!--        </view>-->
-<!--        <view wx:if="{{item.type===2}}">-->
-<!--&lt;!&ndash;            法条&ndash;&gt;-->
-<!--        </view>-->
-<!--        <view wx:if="{{item.type===3}}">-->
-<!--&lt;!&ndash;            结论&ndash;&gt;-->
-<!--        </view>-->
-        <view class="result-title">{{item.id}}</view>
-<!--        <textarea class="result-content" model:value="{{item.content}}" auto-height></textarea>-->
-        <view class="result-content">{{item.content}}</view>
+        <view wx:if="{{item.type===1}}" class="result-list-border fact-box">
+<!--            事实-->
+            <view class="result-title  fact-box">事实 {{item.id}}</view>
+            <!--        <textarea class="result-content" model:value="{{item.content}}" auto-height></textarea>-->
+            <view class="result-content">{{item.content}}</view>
+            <view class="result-warning" wx:if="{{item.needs.length !== 0}}">
+                <view class="warning-title">可能缺少的法条有：</view>
+                <view class="result-warning" wx:for="{{item.needs}}">
+                    <view class="warning-content">{{item.law}} {{item.number}}</view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{item.type===2}}" class="result-list-border law-box">
+<!--            法条-->
+            <view class="result-title">{{item.article.law}} {{item.article.number}}</view>
+            <!--        <textarea class="result-content" model:value="{{item.content}}" auto-height></textarea>-->
+            <view class="result-content">{{item.article.content}}</view>
+        </view>
+        <view wx:if="{{item.type===3}}" class="result-list-border conclusion-box">
+<!--            结论-->
+            <view class="result-title">结论 {{item.id}}</view>
+            <!--        <textarea class="result-content" model:value="{{item.content}}" auto-height></textarea>-->
+            <view class="result-content">{{item.content}}</view>
+            <view class="result-warning"></view>
+        </view>
+<!--        <view class="result-title">{{item.id}}</view>-->
+<!--&lt;!&ndash;        <textarea class="result-content" model:value="{{item.content}}" auto-height></textarea>&ndash;&gt;-->
+<!--        <view class="result-content">{{item.content}}</view>-->
     </view>
 </view>
 <!--<view class="result-list" wx:if="{{resultVisible==false}}"></view>-->

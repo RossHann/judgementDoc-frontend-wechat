@@ -42,9 +42,23 @@
 }
 
 .result-li{
-    border: #2c3e50 solid 3px;
+    border: transparent solid 3px;
     margin-top: 10rpx;
     border-radius: 5px;
+}
+
+.result-list-border{
+    border: transparent solid 3px;
+    border-radius: 5px;
+}
+.fact-box{
+    background-color: #666666;
+}
+.law-box{
+    background-color: darkorange;
+}
+.conclusion-box{
+    background-color: dodgerblue;
 }
 
 .result-title {
@@ -52,7 +66,6 @@
     font-family: SimSong;
     font-size: 32rpx;
     font-weight: 300;
-    background-color: #2c3e50;
     padding: 2px 10px 2px 10px;
 }
 .result-content{
@@ -60,4 +73,18 @@
     /*width: 40.5vh;*/
     padding: 10px 10px 10px 10px;
     background-color: white;
+}
+
+.result-warning{
+    color: #7a0f09;
+    background-color: white;
+    font-family: SimSong;
+}
+.warning-title{
+    padding-left: 10px;
+}
+.warning-content{
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 10px;
 }
