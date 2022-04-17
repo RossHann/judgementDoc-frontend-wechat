@@ -53,7 +53,7 @@ Page({
             success(res) {
                 var resultJ = res
                 if (resultJ == null) {
-                    this.result = null
+                    this.result = []
                 }
                 this.result = resultJ
                 if (resultJ.success) {
@@ -76,22 +76,31 @@ Page({
 
         var text = this.data.DocContent;
         //版本1：带有callback
-        var _this = this
+        var that = this
         this.check(text, {
             success(res) {
-                var newResult = [];
-                for (let item in res) {
-                    if (item.type !== 0) {
-                        newResult.push(item);
-                        console.log(item)
+                var contentRes = [];
+                contentRes = res.content.content;
+                that.setData({
+                    result: []
+                })
+                let re = that.data.result;
+                for (let item in contentRes) {
+                    if (contentRes[item].type !== 0) {
+                        re.push(contentRes[item]);
                     }
                 }
-                _this.setData({
-                    resultVisible: true,
-                    result: newResult,
+                that.setData({
+                    result: re,
+                })
+
+                console.log(that.data.result)
+                that.setData({
+                    resultVisible: true
                 })
             }
         })
+
         //版本2：不带callback
         // this.check(text);
     },

@@ -7,9 +7,18 @@
 <button id="check-button" type="primary" plain bindtap="onCheck">检验</button></view>
 <!--<view model:value="{{result}}"></view>-->
 <!--<view>{{result}}</view>-->
-<!--<view class='result-list' wx:if="{{resultVisible==true}}">-->
 <view class='result-list' wx:if="{{resultVisible}}">
+<!--<view class='result-list' wx:if="{{resultVisible}}">-->
     <view open-type="navigate" hover-class='none' class="result-li" wx:for="{{result}}">
+<!--        <view wx:if="{{item.type===1}}">-->
+<!--&lt;!&ndash;            事实&ndash;&gt;-->
+<!--        </view>-->
+<!--        <view wx:if="{{item.type===2}}">-->
+<!--&lt;!&ndash;            法条&ndash;&gt;-->
+<!--        </view>-->
+<!--        <view wx:if="{{item.type===3}}">-->
+<!--&lt;!&ndash;            结论&ndash;&gt;-->
+<!--        </view>-->
         <view class="result-title">{{item.id}}</view>
 <!--        <textarea class="result-content" model:value="{{item.content}}" auto-height></textarea>-->
         <view class="result-content">{{item.content}}</view>
