@@ -27,6 +27,9 @@
             <view class="result-title">{{item.article.law}} {{item.article.number}}</view>
             <!--        <textarea class="result-content" model:value="{{item.content}}" auto-height></textarea>-->
             <view class="result-content">{{item.article.content}}</view>
+            <view class="result-warning" wx:if="{{item.relations.length === 0}}">
+                <view class="warning-unreasonably-quoted-law">警告：可能缺少事实依据</view>
+            </view>
         </view>
         <view wx:if="{{item.type===3}}" class="result-list-border conclusion-box">
 <!--            结论-->

@@ -88,3 +88,9 @@
     padding-left: 30px;
     padding-bottom: 10px;
 }
+
+.warning-unreasonably-quoted-law{
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
