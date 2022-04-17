@@ -77,12 +77,13 @@
     margin-right: 20rpx;
     margin-left: 23rpx;
     /*border: lightgrey solid 1px;*/
-    padding: 10px 8px 28px 10px;
+    padding: 10px 8px 10px 10px;
     line-height: 24rpx;
     z-index: 1;
 }
 .card-box{
     /*border: lightgrey solid 1px;*/
+    display: flex;
 }
 .card-title{
     font-size: 15px;
@@ -98,7 +99,8 @@
 .title-button{
     font-size: 10px;
     height: inherit;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+    margin-left: 295px;
     width: inherit;
     color: white;
     background-color: #2c3e50;
@@ -106,4 +108,30 @@
 
 .tree-card{
     padding-top: 20px;
+}
+
+.search-card{
+    display: flex;
+    height: 40px;
+    margin: 5px 12px 10px 12px;
+}
+
+.input-column{
+    background-color: white;
+    width: 85%;
+
+    border: lightgrey solid 1px;
+    /*border-radius: 5px;*/
+    padding: 6px 5px 6px 10px;
+    height: 100%;
+    font-size: 15px;
+    font-family: SimSong;
+}
+
+#searchButton{
+    background-color: #2c3e50;
+    color: white;
+    font-size: 15px;
+    border-radius: 0;
+    font-family: SimSong;
 }

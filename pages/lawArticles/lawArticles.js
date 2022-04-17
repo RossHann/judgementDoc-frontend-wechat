@@ -5,43 +5,57 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataTree: [
-      {
-        id: 1,
-        name: '一级A',
-        children: [
-          {
-            id: 23,
-            name: '二级A-a',
-            children: [
-              {
-                id: 98,
-                name: '三级A-a-1'
-              }
-            ]
-          },
-          {
-            id: 20,
-            name: '二级A-b',
-          }
-        ]
-      },
-      {
-        id: 2,
-        name: '一级B',
-        children: [
-          {
-            id: 21,
-            name: '二级B-a',
-          }
-        ]
-      }
-    ],
-    selectKey: '', //选中的节点id
+    // dataTree: [
+    //   {
+    //     id: 1,
+    //     name: '一级A',
+    //     children: [
+    //       {
+    //         id: 23,
+    //         name: '二级A-a',
+    //         children: [
+    //           {
+    //             id: 98,
+    //             name: '三级A-a-1'
+    //           }
+    //         ]
+    //       },
+    //       {
+    //         id: 20,
+    //         name: '二级A-b',
+    //       }
+    //     ]
+    //   },
+    //   {
+    //     id: 2,
+    //     name: '一级B',
+    //     children: [
+    //       {
+    //         id: 21,
+    //         name: '二级B-a',
+    //       }
+    //     ]
+    //   }
+    // ],
+    // selectKey: '', //选中的节点id
     isVisible: false,
     buttonText: '显示',
-    isSelectLastNode: true,
-    isOpenAll: false,
+
+    articleData: [],
+    articleQuery: {
+      keyword: '',
+      number: '',
+      crime: '',
+      catalogs: [],
+    },
+    pageNum: 1,
+    pageSize: 10,
+    total: 0,
+    totalPage: 0,
+    loading: false,
+    queryVisible: false,
+    curKeyword: '',
+    catalogData: [],
   },
 
   loadLawArticles(){
@@ -65,13 +79,13 @@ Page({
     }
   },
   handleSelect(e) {
-    if (e.detail.tips) {
-      console.log('必须选择到最后一个节点')
-    } else {
-      this.setData({
-        selectKey: e.detail.item.id
+    this.setData({
+        curKeyword: e.detail.item.id
       })
-    }
+  },
+
+  submitAllSearchFilters(){
+
   },
 
   /**
