@@ -1,13 +1,13 @@
 <cu-custom bgColor="bg-red" isBack="{{true}}">
   <view slot="content">法条列表</view>
 </cu-custom>
-<view class="page-title">法条查询</view>
+<view class="page-title">法条列表</view>
 
-<view class="search-card">
-    <input model:value="{{articleQuery.keyword}}" class="input-column" placeholder="请输入关键词"></input>
-    <button id="searchButton" bindtap="submitAllSearchFilters">搜索</button>
-</view>
-    <view class="container-card">
+<!--<view class="search-card">-->
+<!--    <input model:value="{{articleQuery.keyword}}" class="input-column" placeholder="请输入关键词"></input>-->
+<!--    <button id="searchButton" bindtap="submitAllSearchFilters">搜索</button>-->
+<!--</view>-->
+<view class="container-card">
     <view class="card-box">
       <view class="card-title">目录</view>
         <view class="detailed-switch">
@@ -16,10 +16,23 @@
     </view>
     <view wx:if="{{isVisible}}" class="tree-card">
       <tree
-              dataTree="{{articleData}}"
-              selectKey="{{curKeyword}}"
+              dataTree="{{dataTree}}"
+              selectKey="{{selectKey}}"
               bind:select="handleSelect"
         ></tree>
+    </view>
+
+</view>
+<view class="law-article-content-card">
+    <view open-type="navigate" hover-class='none' class="result-li" wx:for="{{result}}">
+        <view class="result-list-border law-box">
+            <view class="result-title">
+                <view class="the-text">{{item.article.law}} {{item.article.number}}</view>
+                <button id="quote-law"></button>
+                <button id="copy-law-content"></button>
+            </view>
+            <view class="result-content">{{item.article.content}}</view>
+        </view>
     </view>
 </view>
 

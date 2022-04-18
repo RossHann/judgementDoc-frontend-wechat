@@ -30,25 +30,7 @@ Page({
         exportTypes: ['pdf', 'word'],
     },
 
-
-    // check({commit}, data) {
     check(data, callback) {
-        // check(data){
-        //版本1
-        // var promise = new Promise((resolve, reject) => {
-        //     api.checkAPI(data).then(response=>{
-        //         if (response.data.success){
-        //             resolve(response.data.content);
-        //         }
-        //         else {
-        //             reject(response.data.message);
-        //         }
-        //     })
-        // })
-        //
-        // return promise
-
-        //版本2
         api.checkAPI(data, {
             success(res) {
                 var resultJ = res
@@ -63,7 +45,7 @@ Page({
                     wx.showModal({
                         content: resultJ.message,
                         showCancel: false,
-                        confirmText: '明白了'
+                        confirmText: '确定'
                     })
                 }
                 callback.success(resultJ)
@@ -72,10 +54,7 @@ Page({
     },
 
     onCheck: function (e) {
-
-
         var text = this.data.DocContent;
-        //版本1：带有callback
         var that = this
         this.check(text, {
             success(res) {
@@ -102,16 +81,12 @@ Page({
                 that.setData({
                     result: re,
                 })
-
                 console.log(that.data.result)
                 that.setData({
                     resultVisible: true
                 })
             }
         })
-
-        //版本2：不带callback
-        // this.check(text);
     },
 
     addMember() {

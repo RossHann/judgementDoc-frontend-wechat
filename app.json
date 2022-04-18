@@ -48,7 +48,8 @@
     "mt-dropdown": "/components/mt-dropdown/mt-dropdown",
     "mt-dropdown-item": "/components/mt-dropdown-item/mt-dropdown-item",
     "tree": "/components/tree/tree",
-    "c-tree": "/components/tree/tree"
+    "c-tree": "/components/tree/tree",
+    "table": "../../components/table/table"
   },
   "sitemapLocation": "sitemap.json"
 }

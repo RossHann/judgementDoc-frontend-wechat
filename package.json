@@ -2,7 +2,5 @@
   "name": "judgementDoc-frontend-wechat",
   "version": "1.0.0",
   "dependencies": {},
-  "devDependencies": {
-
-  }
+  "devDependencies": {}
 }

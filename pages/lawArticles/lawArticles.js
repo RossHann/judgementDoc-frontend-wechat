@@ -1,61 +1,65 @@
 // pages/plaza/plaza.js
+var app = getApp()
+var api = require('../../utils/api.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // dataTree: [
-    //   {
-    //     id: 1,
-    //     name: '一级A',
-    //     children: [
-    //       {
-    //         id: 23,
-    //         name: '二级A-a',
-    //         children: [
-    //           {
-    //             id: 98,
-    //             name: '三级A-a-1'
-    //           }
-    //         ]
-    //       },
-    //       {
-    //         id: 20,
-    //         name: '二级A-b',
-    //       }
-    //     ]
-    //   },
-    //   {
-    //     id: 2,
-    //     name: '一级B',
-    //     children: [
-    //       {
-    //         id: 21,
-    //         name: '二级B-a',
-    //       }
-    //     ]
-    //   }
-    // ],
-    // selectKey: '', //选中的节点id
+    dataTree: [
+      // {
+      //   id: 1,
+      //   name: '一级A',
+      //   children: [
+      //     {
+      //       id: 23,
+      //       name: '二级A-a',
+      //       children: [
+      //         {
+      //           id: 98,
+      //           name: '三级A-a-1'
+      //         }
+      //       ]
+      //     },
+      //     {
+      //       id: 20,
+      //       name: '二级A-b',
+      //     }
+      //   ]
+      // },
+      // {
+      //   id: 2,
+      //   name: '一级B',
+      //   children: [
+      //     {
+      //       id: 21,
+      //       name: '二级B-a',
+      //     }
+      //   ]
+      // }
+    ],
+    selectKey: '', //选中的节点id
     isVisible: false,
     buttonText: '显示',
+    showResult: true,
 
-    articleData: [],
-    articleQuery: {
-      keyword: '',
-      number: '',
-      crime: '',
-      catalogs: [],
-    },
+    articleQuery: [],
     pageNum: 1,
     pageSize: 10,
     total: 0,
     totalPage: 0,
     loading: false,
     queryVisible: false,
-    curKeyword: '',
     catalogData: [],
+  },
+
+  getCatalogueTree(callback){
+    api.getCatalogueTreeAPI({
+      success(res){
+        callback.success(res.content)
+      }
+    })
   },
 
   loadLawArticles(){
@@ -79,20 +83,58 @@ Page({
     }
   },
   handleSelect(e) {
-    this.setData({
-        curKeyword: e.detail.item.id
-      })
+    this.articleQuery = this.getChildren(e.detail.item)
+    this.submitAllSearchFilters()
+  },
+
+  getChildren: function (node){
+    // console.log(node)
+    if (node.children == null){
+      return [node.id]
+    }
+    else{
+      var list = []
+      for (let child of node.children){
+        list = list.concat(this.getChildren(child));
+      }
+      console.log(list)
+      return list
+    }
+  },
+
+  getAllArticle(catalogues, callback){
+    api.getAllArticleAPI(catalogues,{
+      success(res){
+        var resultJ = res.content.content;
+        console.log(resultJ)
+      }
+    })
   },
 
   submitAllSearchFilters(){
+    var art = this.articleQuery
+    var that = this
+      this.getAllArticle({
+        art,
+      },{
 
+      })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    this.getCatalogueTree({
+      success(res){
+        // console.log(res)
+        that.setData({
+          dataTree: res
+        })
+        // console.log(that.articleData)
+      }
+    })
   },
 
   /**

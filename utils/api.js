@@ -1,6 +1,7 @@
 //域名地址
 // var prefix = 'http://172.29.7.224:8001';
-var prefix = 'http://localhost:8001';
+// var prefix = 'http://localhost:8001';
+var prefix = 'http://106.15.121.37:8001';
 // var prefix = 'https://mockapi.eolink.com/LZipapNab7780abd7f30e8b3cea9d4f36abbc9d3c3a87b0/';
 // var prefix = '';
 //小程序账号编码(自己定义，后端项目中对应weixin_account表中的account_code)
@@ -69,20 +70,15 @@ const virtual_human_url = prefix + '/rest/face/virtual_human';
 const face_dynamic_url = prefix + '/rest/face_dynamic/list';
 
 const check_text_evaluation_url = prefix + '/api/editor/check';
+const get_catalogue_tree_url = prefix + '/api/article/getCatalogue'
+const get_all_articles_url = prefix + '/api/article/getAll'
 
 /**
  * 文本评估接口
  * @param data 数据
  * */
-
-const api = {
-  editorPre: '/api/editor',
-}
-
 let checkAPI = (data1, callback) => {
-  //版本1
   wx.request({
-      // url: `${api.editorPre}/check`,
       url: check_text_evaluation_url,
       method: 'GET',
       data: {
@@ -98,22 +94,49 @@ let checkAPI = (data1, callback) => {
           callback.fail()
       }
     })
-
-  //版本2
-  // return new Promise((resolve, reject) => {
-  //
-  // })
-
-  //版本3
-  // return wx.request({
-  //   url: check_text_evaluation_url,
-  //   method: 'GET',
-  //   data:{
-  //     text: data1
-  //   }
-  // })
 }
 
+/**
+ * 获得树状目录接口
+ * */
+let getCatalogueTreeAPI = (callback) => {
+  wx.request({
+    url: get_catalogue_tree_url,
+    method: 'GET',
+    success: function(res) {
+      callback.success(res.data)
+    },
+    fail: function(res){
+      if (callback.fail)
+        callback.fail()
+    }
+  })
+}
+
+/**
+ * 获得法条接口
+ * @param data 数据
+ * */
+let getAllArticleAPI = (data,callback) =>{
+  wx.request({
+    url: get_all_articles_url,
+    method: "GET",
+    data:{
+      keyword: '',
+      number: '',
+      crime: '',
+      pageNum: 1,
+      pageSize: 10
+    },
+    success: function(res) {
+      callback.success(res.data)
+    },
+    fail: function(res){
+      if (callback.fail)
+        callback.fail()
+    }
+  })
+}
 
 /**
  * 人脸驱动接口
@@ -605,5 +628,7 @@ module.exports={
   driveRequest:driveRequest,
   virtualHumanRequest:virtualHumanRequest,
   faceDynamicListRequest:faceDynamicListRequest,
-  checkAPI:checkAPI
+  checkAPI:checkAPI,
+  getCatalogueTreeAPI:getCatalogueTreeAPI,
+  getAllArticleAPI:getAllArticleAPI
 }

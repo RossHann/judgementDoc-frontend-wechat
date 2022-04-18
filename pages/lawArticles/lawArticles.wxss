@@ -84,6 +84,7 @@
 .card-box{
     /*border: lightgrey solid 1px;*/
     display: flex;
+    /*background-color: white;*/
 }
 .card-title{
     font-size: 15px;
@@ -107,7 +108,8 @@
 }
 
 .tree-card{
-    padding-top: 20px;
+    padding-top: 6px;
+    padding-bottom: 20px;
 }
 
 .search-card{
@@ -134,4 +136,30 @@
     font-size: 15px;
     border-radius: 0;
     font-family: SimSong;
+}
+.law-article-content-card{
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+.result-li{
+    border: transparent solid 3px;
+    margin-top: 10rpx;
+    border-radius: 5px;
+}
+.result-list-border{
+    border: transparent solid 3px;
+    border-radius: 5px;
+}
+.result-title {
+    color: white;
+    font-family: SimSong;
+    font-size: 32rpx;
+    font-weight: 300;
+    padding: 2px 10px 2px 10px;
+}
+.result-content{
+    font-family: SimSong;
+    /*width: 40.5vh;*/
+    padding: 10px 10px 10px 10px;
+    background-color: white;
 }

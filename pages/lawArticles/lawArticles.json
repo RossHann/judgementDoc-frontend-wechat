@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-
+    "table": "../../components/table/table"
   }
 }
