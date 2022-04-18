@@ -1,4 +1,30 @@
 <cu-custom bgColor="bg-red" isBack="{{true}}">
     <view slot="content">文书列表</view>
 </cu-custom>
-<view>文书列表</view>
+<view class="page-title">文书查询</view>
+
+<view class="container-card">
+    <view class="card-box">
+        <view class="card-title">目录</view>
+        <view class="detailed-switch">
+            <button bindtap="showQuery" class="title-button">{{buttonText}}</button>
+        </view>
+    </view>
+    <view wx:if="{{isVisible}}" class="tree-card">
+        <tree
+                dataTree="{{dataTree}}"
+                selectKey="{{selectKey}}"
+                bind:select="handleSelect"
+        ></tree>
+    </view>
+</view>
+<view class="law-article-content-card" wx:if="{{resultVisible}}">
+    <view class="result-li" wx:for="{{articleContents}}">
+        <view class="result-list-border law-box">
+            <view class="result-title">
+                <view class="the-text">{{item.law}} {{item.number}}</view>
+            </view>
+            <view class="result-content">{{item.content}}</view>
+        </view>
+    </view>
+</view>

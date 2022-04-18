@@ -21,18 +21,30 @@
               bind:select="handleSelect"
         ></tree>
     </view>
-
 </view>
-<view class="law-article-content-card">
-    <view open-type="navigate" hover-class='none' class="result-li" wx:for="{{result}}">
+<view class="law-article-content-card" wx:if="{{resultVisible}}">
+    <view class="result-li" wx:for="{{articleContents}}">
         <view class="result-list-border law-box">
             <view class="result-title">
-                <view class="the-text">{{item.article.law}} {{item.article.number}}</view>
-                <button id="quote-law"></button>
-                <button id="copy-law-content"></button>
+                <view class="the-text">{{item.law}} {{item.number}}</view>
             </view>
-            <view class="result-content">{{item.article.content}}</view>
+            <view class="result-content">{{item.content}}</view>
         </view>
     </view>
 </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -138,8 +138,8 @@
     font-family: SimSong;
 }
 .law-article-content-card{
-    margin-top: 0px;
-    margin-bottom: 20px;
+    /*background-color: white;*/
+    margin: 20px 20rpx 100vh 23rpx;
 }
 .result-li{
     border: transparent solid 3px;
@@ -153,13 +153,17 @@
 .result-title {
     color: white;
     font-family: SimSong;
-    font-size: 32rpx;
+    font-size: 30rpx;
     font-weight: 300;
     padding: 2px 10px 2px 10px;
+    background-color: #2c3e50;
 }
 .result-content{
     font-family: SimSong;
     /*width: 40.5vh;*/
     padding: 10px 10px 10px 10px;
     background-color: white;
+}
+.law-box{
+    background-color: #2c3e50;
 }

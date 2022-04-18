@@ -43,7 +43,7 @@ Page({
     isVisible: false,
     buttonText: '显示',
     showResult: true,
-
+    articleContents:[],
     articleQuery: [],
     pageNum: 1,
     pageSize: 10,
@@ -52,10 +52,11 @@ Page({
     loading: false,
     queryVisible: false,
     catalogData: [],
+    resultVisible: false,
   },
 
   getCatalogueTree(callback){
-    api.getCatalogueTreeAPI({
+    api.getArticleCatalogueTreeAPI({
       success(res){
         callback.success(res.content)
       }
@@ -83,8 +84,14 @@ Page({
     }
   },
   handleSelect(e) {
+    this.setData({
+      articleContents: []
+    })
     this.articleQuery = this.getChildren(e.detail.item)
     this.submitAllSearchFilters()
+    this.setData({
+      resultVisible: true
+    })
   },
 
   getChildren: function (node){
@@ -103,22 +110,31 @@ Page({
   },
 
   getAllArticle(catalogues, callback){
+    var that = this
     api.getAllArticleAPI(catalogues,{
       success(res){
-        var resultJ = res.content.content;
-        console.log(resultJ)
+        var resultJ = res.content;
+        console.log(resultJ);
+
+        console.log(that.articleContents)
+        that.setData({
+          pageNum: resultJ.pageNum,
+          total: resultJ.total,
+          totalPage: resultJ.totalPage,
+          articleContents: resultJ.list
+        })
+        // callback.success(resultJ);
       }
     })
   },
 
   submitAllSearchFilters(){
-    var art = this.articleQuery
-    var that = this
-      this.getAllArticle({
-        art,
-      },{
+    // var art = this.articleQuery
+    // var that = this
+      this.getAllArticle(this.articleQuery,{
 
       })
+      console.log(this.articleContents)
   },
 
   /**

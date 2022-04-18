@@ -70,8 +70,28 @@ const virtual_human_url = prefix + '/rest/face/virtual_human';
 const face_dynamic_url = prefix + '/rest/face_dynamic/list';
 
 const check_text_evaluation_url = prefix + '/api/editor/check';
-const get_catalogue_tree_url = prefix + '/api/article/getCatalogue'
+const get_article_catalogue_tree_url = prefix + '/api/article/getCatalogue'
 const get_all_articles_url = prefix + '/api/article/getAll'
+const get_all_documents_url = prefix + '/api/article/getAll'
+const get_document_catalogue_tree_url = prefix + '/api/document/getCatalogue'
+
+
+/**
+ * 获取树状目录接口
+ * */
+let getDocumentCatalogueTreeAPI = (callback) => {
+  wx.request({
+    url: get_document_catalogue_tree_url,
+    method: 'GET',
+    success: function(res) {
+      callback.success(res.data)
+    },
+    fail: function(res){
+      if (callback.fail)
+        callback.fail()
+    }
+  })
+}
 
 /**
  * 文本评估接口
@@ -99,9 +119,9 @@ let checkAPI = (data1, callback) => {
 /**
  * 获得树状目录接口
  * */
-let getCatalogueTreeAPI = (callback) => {
+let getArticleCatalogueTreeAPI = (callback) => {
   wx.request({
-    url: get_catalogue_tree_url,
+    url: get_article_catalogue_tree_url,
     method: 'GET',
     success: function(res) {
       callback.success(res.data)
@@ -118,6 +138,8 @@ let getCatalogueTreeAPI = (callback) => {
  * @param data 数据
  * */
 let getAllArticleAPI = (data,callback) =>{
+  var data1 = JSON.stringify(data)
+  data1 = data1.substring(1, data1.length - 1)
   wx.request({
     url: get_all_articles_url,
     method: "GET",
@@ -125,8 +147,9 @@ let getAllArticleAPI = (data,callback) =>{
       keyword: '',
       number: '',
       crime: '',
+      catalogs: data1,
       pageNum: 1,
-      pageSize: 10
+      pageSize: 1000
     },
     success: function(res) {
       callback.success(res.data)
@@ -629,6 +652,7 @@ module.exports={
   virtualHumanRequest:virtualHumanRequest,
   faceDynamicListRequest:faceDynamicListRequest,
   checkAPI:checkAPI,
-  getCatalogueTreeAPI:getCatalogueTreeAPI,
-  getAllArticleAPI:getAllArticleAPI
+  getArticleCatalogueTreeAPI:getArticleCatalogueTreeAPI,
+  getAllArticleAPI:getAllArticleAPI,
+  getDocumentCatalogueTreeAPI:getDocumentCatalogueTreeAPI
 }
