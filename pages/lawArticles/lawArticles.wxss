@@ -139,7 +139,7 @@
 }
 .law-article-content-card{
     /*background-color: white;*/
-    margin: 20px 20rpx 100vh 23rpx;
+    margin: 20px 20rpx 50vh 23rpx;
 }
 .result-li{
     border: transparent solid 3px;

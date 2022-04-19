@@ -72,7 +72,7 @@ const face_dynamic_url = prefix + '/rest/face_dynamic/list';
 const check_text_evaluation_url = prefix + '/api/editor/check';
 const get_article_catalogue_tree_url = prefix + '/api/article/getCatalogue'
 const get_all_articles_url = prefix + '/api/article/getAll'
-const get_all_documents_url = prefix + '/api/article/getAll'
+const get_all_documents_url = prefix + '/api/document/getAll'
 const get_document_catalogue_tree_url = prefix + '/api/document/getCatalogue'
 
 
@@ -123,6 +123,39 @@ let getArticleCatalogueTreeAPI = (callback) => {
   wx.request({
     url: get_article_catalogue_tree_url,
     method: 'GET',
+    success: function(res) {
+      callback.success(res.data)
+    },
+    fail: function(res){
+      if (callback.fail)
+        callback.fail()
+    }
+  })
+}
+
+/**
+ * 获得文章接口
+ * @param startDate 开始日期
+ * @param endDate 结束日期
+ * @param data 数据
+ * */
+let getAllDocumentAPI = (startDate, endDate, data, callback) => {
+  var data1 = JSON.stringify(data)
+  data1 = data1.substring(1, data1.length - 1)
+  wx.request({
+    url: get_all_documents_url,
+    method: "GET",
+    data:{
+      keyword: '',
+      number: '',
+      name:'',
+      courtName: '',
+      catalogs: data1,
+      start: startDate,
+      end: endDate,
+      pageNum: 1,
+      pageSize: 1000000
+    },
     success: function(res) {
       callback.success(res.data)
     },
@@ -654,5 +687,6 @@ module.exports={
   checkAPI:checkAPI,
   getArticleCatalogueTreeAPI:getArticleCatalogueTreeAPI,
   getAllArticleAPI:getAllArticleAPI,
-  getDocumentCatalogueTreeAPI:getDocumentCatalogueTreeAPI
+  getDocumentCatalogueTreeAPI:getDocumentCatalogueTreeAPI,
+  getAllDocumentAPI:getAllDocumentAPI
 }

@@ -87,7 +87,7 @@
     /*background-color: white;*/
 }
 .card-title{
-    font-size: 15px;
+    font-size: 11px;
     float: left;
     margin-left: 5px;
     margin-top: 5px;
@@ -139,7 +139,7 @@
 }
 .law-article-content-card{
     /*background-color: white;*/
-    margin: 20px 20rpx 100vh 23rpx;
+    margin: 20px 20rpx 50vh 23rpx;
 }
 .result-li{
     border: transparent solid 3px;
@@ -153,10 +153,11 @@
 .result-title {
     color: white;
     font-family: SimSong;
-    font-size: 30rpx;
+    font-size: 20px;
     font-weight: 300;
     padding: 2px 10px 2px 10px;
     background-color: #2c3e50;
+    display: inline-flex;
 }
 .result-content{
     font-family: SimSong;
@@ -166,4 +167,262 @@
 }
 .law-box{
     background-color: #2c3e50;
+}
+.start-date{
+    font-size: 15px;
+    border: lightgrey solid 1px;
+    padding: 15px 15px 15px 15px;
+    border-radius: 8px;
+}
+.end-date{
+    margin-left: 26px;
+    font-size: 15px;
+    border: lightgrey solid 1px;
+    padding: 15px 15px 15px 15px;
+    border-radius: 8px;
+}
+
+.color3{
+    color: #333;
+}
+
+.color6{
+    color: #666;
+}
+
+.timeIcon{
+    color:#666;
+    font-size:18rpx;
+    margin-left: 5rpx;
+}
+
+.date-card{
+    display: flex;
+    margin: 0px 20px 20px 20px;
+}
+#content-button{
+    color: #2c3e50;
+    background-color: red;
+}@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+
+.reason_txt {
+    font-size: 32rpx;
+    color: #aaaaaa;
+    display: table;
+    width: auto;
+    white-space: nowrap;
+    border-spacing: 0.5rem 0;
+    margin-left: 28rpx;
+    margin-right: 28rpx;
+    margin-top: 28rpx;
+}
+
+.reason_txt::before, .reason_txt::after {
+    display: table-cell;
+    content: "";
+    width: 50%;
+    background: linear-gradient(#aaaaaa, #aaaaaa) repeat-x center;
+    background-size: 0.1rem 0.1rem;
+}
+.content-card{
+    font-size: 30rpx;
+    font-family: SimSong;
+    width: 18vw;
+    line-height: 100%;
+    padding: 10rpx;
+    margin-right: 10px;
+    margin-top: 25rpx;
+}
+
+.law-article-search{
+    border: 1rpx;
+}
+
+.page-title{
+    margin-top: 30rpx;
+    margin-bottom: 20rpx;
+    text-align: center;
+    font-size: 40rpx;
+    color: #2c3e50;
+    font-family: SimSong;
+}
+.slot_1_container {
+    height: 60vh;
+}
+
+.modal-btn-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-top: 1rpx solid rgba(7,17,27,0.1);
+    width: 100%;
+}
+
+.cancel-btn, .confirm-btn {
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 32rpx;
+    width: 50%;
+}
+
+.cancel-btn {
+    border-right: 1rpx solid rgba(7,17,27,0.1);
+}
+
+.container-card{
+    background-color: white;
+    font-family: SimSong;
+    display: inline-list-item;
+    margin-right: 20rpx;
+    margin-left: 23rpx;
+    /*border: lightgrey solid 1px;*/
+    padding: 10px 8px 10px 10px;
+    line-height: 24rpx;
+    z-index: 1;
+}
+.card-box{
+    /*border: lightgrey solid 1px;*/
+    display: flex;
+    /*background-color: white;*/
+}
+.card-title{
+    font-size: 11px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+.detailed-switch{
+    margin-right: 5px;
+    float: right;
+    /*width: 35px;*/
+}
+.title-button{
+    font-size: 10px;
+    height: inherit;
+    margin-bottom: 0px;
+    margin-left: 295px;
+    width: inherit;
+    color: white;
+    background-color: #2c3e50;
+}
+
+.tree-card{
+    padding-top: 6px;
+    padding-bottom: 20px;
+}
+
+.search-card{
+    display: flex;
+    height: 40px;
+    margin: 5px 12px 10px 12px;
+}
+
+.input-column{
+    background-color: white;
+    width: 85%;
+
+    border: lightgrey solid 1px;
+    /*border-radius: 5px;*/
+    padding: 6px 5px 6px 10px;
+    height: 100%;
+    font-size: 15px;
+    font-family: SimSong;
+}
+
+#searchButton{
+    background-color: #2c3e50;
+    color: white;
+    font-size: 15px;
+    border-radius: 0;
+    font-family: SimSong;
+}
+.law-article-content-card{
+    /*background-color: white;*/
+    margin: 20px 20rpx 50vh 23rpx;
+}
+.result-li{
+    border: transparent solid 3px;
+    margin-top: 10rpx;
+    border-radius: 5px;
+}
+.result-list-border{
+    border: transparent solid 3px;
+    border-radius: 5px;
+}
+.result-title {
+    color: white;
+    font-family: SimSong;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 2px 10px 2px 10px;
+    background-color: #2c3e50;
+    display: inline-flex;
+}
+.result-content{
+    font-family: SimSong;
+    width: 42.2vh;
+    padding: 10px 10px 10px 10px;
+    background-color: white;
+}
+.law-box{
+    background-color: #2c3e50;
+}
+.start-date{
+    font-size: 15px;
+    border: lightgrey solid 1px;
+    padding: 15px 15px 15px 15px;
+    border-radius: 8px;
+}
+.end-date{
+    margin-left: 26px;
+    font-size: 15px;
+    border: lightgrey solid 1px;
+    padding: 15px 15px 15px 15px;
+    border-radius: 8px;
+}
+
+.color3{
+    color: #333;
+}
+
+.color6{
+    color: #666;
+}
+
+.timeIcon{
+    color:#666;
+    font-size:18rpx;
+    margin-left: 5rpx;
+}
+
+.date-card{
+    display: flex;
+    margin: 0px 20px 20px 20px;
+}
+#content-button{
+    color: #2c3e50;
+    background-color: white;
+    width: 10vh;
+    height: 4vh;
+    font-size: 12px;
+    font-weight: 900;
+    border-radius: 3px;
+    margin-top: 1px;
+    padding-top: 3px;
+}
+
+.the-text{
+    padding-right: 12px;
+}
+
+.result-title-text{
+    display: inline-list-item;
+    font-size: 15px;
+    width: 30vh;
 }

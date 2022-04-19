@@ -53,6 +53,40 @@ Page({
     queryVisible: false,
     catalogData: [],
     resultVisible: false,
+    startDate: '',
+    endDate: '',
+    contentVisible:true,
+    contentButtonText:'收起全文'
+  },
+  showWholeContent:function (){
+    var that= this
+    //判断元素为显示还是隐藏并做相应操作
+    if(that.data.contentVisible == true){
+      that.setData({
+        contentVisible:false,
+        contentButtonText: '显示全文'
+      })
+    }else{
+      this.loadLawArticles(),
+          that.setData({
+            contentVisible:true,
+            contentButtonText: '收起全文'
+          })
+    }
+  },
+  bindStartDateChange: function (e) {
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      startDate: e.detail.value
+    })
+    // console.log('picker发送选择改变，携带值为', this.data.startDate)
+  },
+  bindEndDateChange: function (e) {
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      endDate: e.detail.value
+    })
+    // console.log('picker发送选择改变，携带值为', this.data.endDate)
   },
 
   getDocumentCatalogueTree(callback){
@@ -109,18 +143,18 @@ Page({
     }
   },
 
-  getAllArticle(catalogues, callback){
+  getAllDocument(startDate, endDate, catalogues, callback){
     var that = this
-    api.getAllArticleAPI(catalogues,{
+    api.getAllDocumentAPI(startDate, endDate, catalogues,{
       success(res){
         var resultJ = res.content;
-        console.log(resultJ);
+        console.log(res);
 
-        console.log(that.articleContents)
+        console.log(that.data.articleContents)
         that.setData({
-          pageNum: resultJ.pageNum,
-          total: resultJ.total,
-          totalPage: resultJ.totalPage,
+          // pageNum: resultJ.pageNum,
+          // total: resultJ.total,
+          // totalPage: resultJ.totalPage,
           articleContents: resultJ.list
         })
         // callback.success(resultJ);
@@ -131,10 +165,10 @@ Page({
   submitAllSearchFilters(){
     // var art = this.articleQuery
     // var that = this
-    this.getAllArticle(this.articleQuery,{
+    this.getAllDocument(this.data.startDate, this.data.endDate, this.articleQuery,{
 
     })
-    console.log(this.articleContents)
+    console.log(this.data.articleContents)
   },
 
   /**

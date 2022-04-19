@@ -5,7 +5,7 @@
 
 <view class="container-card">
     <view class="card-box">
-        <view class="card-title">目录</view>
+        <view class="card-title">筛选器</view>
         <view class="detailed-switch">
             <button bindtap="showQuery" class="title-button">{{buttonText}}</button>
         </view>
@@ -17,14 +17,34 @@
                 bind:select="handleSelect"
         ></tree>
     </view>
+    <view class="date-card">
+        <picker mode="date" header-text="选择时间" value="{{startDate}}" bindchange="bindStartDateChange" wx:if="{{isVisible}}">
+            <view class="start-date">
+                <text class="color3">从：</text>
+                <text class="color6">{{startDate}}</text>
+                <text class="timeIcon">▼</text>
+            </view>
+        </picker>
+        <picker mode="date" header-text="选择时间" value="{{endDate}}" bindchange="bindEndDateChange" wx:if="{{isVisible}}">
+            <view class="end-date">
+                <text class="color3">至：</text>
+                <text class="color6">{{endDate}}</text>
+                <text class="timeIcon">▼</text>
+            </view>
+        </picker>
+    </view>
 </view>
 <view class="law-article-content-card" wx:if="{{resultVisible}}">
     <view class="result-li" wx:for="{{articleContents}}">
         <view class="result-list-border law-box">
             <view class="result-title">
-                <view class="the-text">{{item.law}} {{item.number}}</view>
+                <view class="result-title-text">
+                    <view class="the-text">{{item.name}}</view>
+                    <view class="the-text">{{item.number}}</view>
+                </view>
+                <button bindtap="showWholeContent" id="content-button">{{contentButtonText}}</button>
             </view>
-            <view class="result-content">{{item.content}}</view>
+            <view class="result-content" wx:if="{{contentVisible}}">{{item.content}}</view>
         </view>
     </view>
 </view>
